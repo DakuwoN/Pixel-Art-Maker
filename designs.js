@@ -1,20 +1,29 @@
 // Select color input
-const color_input = document.getElementById("colorPicker")
-// Select canvas input
-const canvas_input = document.getElementById("pixelCanvas")
-// Select height input
-const height_input = document.getElementById("inputHeight")
-// Select width
-const width_input = document.getElementById("inputWidth")
-// Select size input
-const size_input = document.getElementById("sizePicker")
+const colorInput = document.getElementById("colorPicker");// Select size input
+const sizeInput = document.getElementById("sizePicker");
+// Table input
+const tableInput = document.getElementById("pixelCanvas");
+// Input for height value
+const heightInput = document.getElementById("inputHeight").value;
+// Input for width value
+const widthInput = document.getElementById("inputWidth").value;
 
+
+// Listens for an event on the submit button.
+sizeInput.addEventListener("submit", function (event) {
+    event.preventDefault()
+    // Logic to add the grid.
+    makeGrid()
+})
+
+tableInput.addEventListener("click", function (event) {
+    if (event.target.nodeName === 'TD') {
+
+    }
+})
 
 // When size is submitted by the user, call makeGrid()
 
-function makeGrid() {
+// function makeGrid() {
 
-
-
-
-}
+//     }
