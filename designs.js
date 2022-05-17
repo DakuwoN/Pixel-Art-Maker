@@ -9,28 +9,35 @@ const heightInput = document.getElementById("inputHeight");
 // Input for width value
 const widthInput = document.getElementById("inputWidth");
 
-
+// When size is submitted by the user, call makeGrid()
 // Listens for an event on the submit button.
 sizeInput.addEventListener("submit", function (event) {
+    // Resets the grid.
+    tableInput.innerHTML = " ";
     event.preventDefault()
-    // makeGrid function that accepts user input values.
+    // Invoking the makeGrid function to accept user  input values.
     makeGrid(heightInput.value, widthInput.value);
+
 });
 
+// Listens for event to change background color on grid. Event interface interacts with the DOM HTML tag 'td' on click.
+tableInput.addEventListener("click", function (event) {
+    if (event.target.nodeName === "TD") {
+        event.target.style.backgroundColor = colorInput.value;
+    }
+})
 
-
-// When size is submitted by the user, call makeGrid()
-
+// This function takes two parameters of height and width // values. makeGrid function to create the grid canvas.
 function makeGrid(heightInput, widthInput) {
-    // Resets the grid.
-    tableInput.innerHTML = "";
-    // Logic to create the grid.
-    for (let h = 0; h < heightInput.value; h += 1) {
-        const row = tableInput.insertRow(0);
-        for (let w = 0; w < widthInput.value; w += 1) {
-            row.insertCell(0);
+    // Nesting for loops as an _N by M_grid
+    for (let r = 0; r < heightInput; r++) {
+        const tableRow = tableInput.insertRow(r);
+        for (let c = 0; c < widthInput; c++) {
+            tableRow.insertCell(c);
         }
+
     }
 
-
 }
+
+
